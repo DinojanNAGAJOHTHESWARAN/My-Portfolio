@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ExternalLink, Eye } from "lucide-react";
 
 const Projects = () => {
   const { t, language } = useLanguage();
@@ -31,7 +32,8 @@ const Projects = () => {
         en: "70% reduction in lead processing time and 45% improvement in conversion rate."
       },
       tools: ["Make", "Airtable", "HubSpot", "Zapier"],
-      type: "Automatisation"
+      type: "Automatisation",
+      gradient: "from-blue-500 to-cyan-500"
     },
     {
       id: 2,
@@ -56,7 +58,8 @@ const Projects = () => {
         en: "60% improvement in decision-making speed and identification of 3 new growth levers."
       },
       tools: ["Power BI", "SQL", "Excel", "Python"],
-      type: "Data Analysis"
+      type: "Data Analysis",
+      gradient: "from-green-500 to-emerald-500"
     },
     {
       id: 3,
@@ -81,60 +84,93 @@ const Projects = () => {
         en: "80% reduction in communication delays and improved team responsiveness."
       },
       tools: ["Notion", "Slack", "Zapier", "API"],
-      type: "Communication"
+      type: "Communication",
+      gradient: "from-purple-500 to-pink-500"
     }
   ];
 
   return (
-    <section id="projects" className="py-24 px-4">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-            {t('projectsTitle')}
+    <section id="projects" className="py-32 px-4 relative">
+      <div className="container mx-auto max-w-7xl">
+        <div className="text-center mb-20 animate-fade-in-up">
+          <h2 className="text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-8">
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              {t('projectsTitle')}
+            </span>
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             {t('projectsSubtitle')}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <Card key={project.id} className="group hover:shadow-2xl transition-all duration-300 border-0 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm">
-              <CardHeader>
+          {projects.map((project, index) => (
+            <Card 
+              key={project.id} 
+              className="group glass-effect hover-lift border-0 shadow-xl overflow-hidden animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              {/* Header avec gradient */}
+              <div className={`h-2 bg-gradient-to-r ${project.gradient}`}></div>
+              
+              <CardHeader className="pb-4">
                 <div className="flex justify-between items-start mb-4">
-                  <Badge variant="outline" className="text-blue-600 border-blue-600">
+                  <Badge 
+                    variant="outline" 
+                    className={`text-transparent bg-gradient-to-r ${project.gradient} bg-clip-text border-blue-200 dark:border-blue-800`}
+                  >
                     {project.type}
                   </Badge>
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Eye className="h-4 w-4 text-slate-400" />
+                  </div>
                 </div>
-                <CardTitle className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors">
+                <CardTitle className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors duration-300 leading-tight">
                   {project.title[language]}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+
+              <CardContent className="space-y-6">
                 <div>
-                  <h4 className="font-semibold text-slate-700 dark:text-slate-300 mb-2">{t('context')}</h4>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">{project.context[language]}</p>
+                  <h4 className="font-semibold text-slate-700 dark:text-slate-300 mb-3 text-sm uppercase tracking-wider">
+                    {t('context')}
+                  </h4>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {project.context[language]}
+                  </p>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-slate-700 dark:text-slate-300 mb-2">{t('objective')}</h4>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">{project.objective[language]}</p>
+                  <h4 className="font-semibold text-slate-700 dark:text-slate-300 mb-3 text-sm uppercase tracking-wider">
+                    {t('objective')}
+                  </h4>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {project.objective[language]}
+                  </p>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-slate-700 dark:text-slate-300 mb-2">{t('results')}</h4>
-                  <p className="text-sm text-green-600 dark:text-green-400 font-medium">{project.results[language]}</p>
+                  <h4 className="font-semibold text-slate-700 dark:text-slate-300 mb-3 text-sm uppercase tracking-wider">
+                    {t('results')}
+                  </h4>
+                  <p className="text-sm font-medium bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                    {project.results[language]}
+                  </p>
                 </div>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 pt-2">
                   {project.tools.map((tool) => (
-                    <Badge key={tool} variant="secondary" className="text-xs">
+                    <Badge key={tool} variant="secondary" className="text-xs px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
                       {tool}
                     </Badge>
                   ))}
                 </div>
                 
-                <Button variant="outline" className="w-full mt-4 group-hover:bg-blue-50 dark:group-hover:bg-blue-950">
+                <Button 
+                  variant="outline" 
+                  className="w-full mt-6 group-hover:bg-gradient-to-r group-hover:from-blue-50 group-hover:to-indigo-50 dark:group-hover:from-blue-950 dark:group-hover:to-indigo-950 transition-all duration-300 border-blue-200 dark:border-blue-800"
+                >
+                  <ExternalLink className="h-4 w-4 mr-2" />
                   Voir le projet
                 </Button>
               </CardContent>

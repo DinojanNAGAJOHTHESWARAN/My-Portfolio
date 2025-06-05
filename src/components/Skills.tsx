@@ -16,7 +16,8 @@ const Skills = () => {
         { name: "Airtable", level: 85 },
         { name: "n8n", level: 75 }
       ],
-      color: "bg-blue-500"
+      gradient: "from-blue-500 to-cyan-500",
+      icon: "🔄"
     },
     {
       category: t('dataViz'),
@@ -27,7 +28,8 @@ const Skills = () => {
         { name: "Dataiku", level: 70 },
         { name: "Excel", level: 95 }
       ],
-      color: "bg-green-500"
+      gradient: "from-green-500 to-emerald-500",
+      icon: "📊"
     },
     {
       category: t('development'),
@@ -38,7 +40,8 @@ const Skills = () => {
         { name: "HTML/CSS", level: 80 },
         { name: "Git", level: 75 }
       ],
-      color: "bg-purple-500"
+      gradient: "from-purple-500 to-pink-500",
+      icon: "💻"
     },
     {
       category: t('marketing'),
@@ -49,43 +52,65 @@ const Skills = () => {
         { name: "CRM", level: 85 },
         { name: "Lead Generation", level: 82 }
       ],
-      color: "bg-orange-500"
+      gradient: "from-orange-500 to-red-500",
+      icon: "🎯"
     }
   ];
 
   return (
-    <section id="skills" className="py-24 px-4 bg-slate-50/50 dark:bg-slate-900/50">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-            {t('skillsTitle')}
+    <section id="skills" className="py-32 px-4 bg-slate-50/50 dark:bg-slate-900/50 relative">
+      <div className="container mx-auto max-w-7xl">
+        <div className="text-center mb-20 animate-fade-in-up">
+          <h2 className="text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-8">
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              {t('skillsTitle')}
+            </span>
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             {t('skillsSubtitle')}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 mb-20">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-0 shadow-lg">
-              <CardHeader>
-                <CardTitle className="text-xl font-bold text-slate-900 dark:text-white flex items-center">
-                  <div className={`w-3 h-3 rounded-full ${category.color} mr-3`}></div>
-                  {category.category}
+            <Card 
+              key={index} 
+              className="glass-effect hover-lift border-0 shadow-xl animate-fade-in-up overflow-hidden"
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              {/* Header avec gradient */}
+              <div className={`h-2 bg-gradient-to-r ${category.gradient}`}></div>
+              
+              <CardHeader className="pb-6">
+                <CardTitle className="text-2xl font-bold text-slate-900 dark:text-white flex items-center">
+                  <span className="text-3xl mr-4">{category.icon}</span>
+                  <span className="bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-200 dark:to-slate-400 bg-clip-text text-transparent">
+                    {category.category}
+                  </span>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              
+              <CardContent className="space-y-6">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="space-y-2">
+                  <div key={skillIndex} className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                      <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
                         {skill.name}
                       </span>
-                      <span className="text-sm text-slate-500 dark:text-slate-400">
+                      <span className="text-sm font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                         {skill.level}%
                       </span>
                     </div>
-                    <Progress value={skill.level} className="h-2" />
+                    <div className="relative">
+                      <Progress 
+                        value={skill.level} 
+                        className="h-3 bg-slate-200 dark:bg-slate-700" 
+                      />
+                      <div 
+                        className={`absolute top-0 left-0 h-3 bg-gradient-to-r ${category.gradient} rounded-full transition-all duration-1000 ease-out`}
+                        style={{ width: `${skill.level}%` }}
+                      ></div>
+                    </div>
                   </div>
                 ))}
               </CardContent>
@@ -93,25 +118,23 @@ const Skills = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">50+</div>
-              <div className="text-sm text-slate-600 dark:text-slate-400">Automations créées</div>
+        {/* Statistiques avec design amélioré */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 animate-fade-in-up">
+          {[
+            { number: "50+", label: "Automations créées", gradient: "from-blue-500 to-cyan-500" },
+            { number: "15+", label: "Projets complétés", gradient: "from-green-500 to-emerald-500" },
+            { number: "70%", label: "Gain de productivité moyen", gradient: "from-purple-500 to-pink-500" },
+            { number: "3", label: "Années d'expérience", gradient: "from-orange-500 to-red-500" }
+          ].map((stat, index) => (
+            <div key={index} className="text-center group">
+              <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300`}>
+                {stat.number}
+              </div>
+              <div className="text-sm text-slate-600 dark:text-slate-400 font-medium">
+                {stat.label}
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-600 dark:text-green-400">15+</div>
-              <div className="text-sm text-slate-600 dark:text-slate-400">Projets complétés</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">70%</div>
-              <div className="text-sm text-slate-600 dark:text-slate-400">Gain de productivité moyen</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-600 dark:text-orange-400">3</div>
-              <div className="text-sm text-slate-600 dark:text-slate-400">Années d'expérience</div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

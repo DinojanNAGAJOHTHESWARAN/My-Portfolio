@@ -1,7 +1,7 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -13,32 +13,49 @@ const Hero = () => {
     }
   };
 
+  const scrollToProjects = () => {
+    const element = document.getElementById('projects');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center pt-16 px-4">
-      <div className="container mx-auto max-w-4xl text-center">
-        <div className="animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            {t('name')}
+    <section id="hero" className="min-h-screen flex items-center justify-center pt-16 px-4 relative">
+      <div className="container mx-auto max-w-5xl text-center">
+        <div className="animate-fade-in-up">
+          {/* Badge de présentation */}
+          <div className="inline-flex items-center px-4 py-2 mb-8 bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-full border border-blue-200 dark:border-blue-800">
+            <span className="text-sm font-medium text-blue-700 dark:text-blue-300">
+              ✨ Spécialiste Automatisation & Data
+            </span>
+          </div>
+
+          <h1 className="text-6xl md:text-8xl font-bold text-slate-900 dark:text-white mb-8 leading-tight">
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              {t('name')}
+            </span>
           </h1>
           
-          <h2 className="text-2xl md:text-3xl font-semibold text-slate-700 dark:text-slate-300 mb-8">
+          <h2 className="text-3xl md:text-4xl font-semibold text-slate-700 dark:text-slate-300 mb-6">
             {t('title')}
           </h2>
           
-          <p className="text-xl md:text-2xl text-blue-600 dark:text-blue-400 mb-8 font-medium">
+          <p className="text-2xl md:text-3xl text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text mb-12 font-medium">
             "{t('tagline')}"
           </p>
           
-          <div className="max-w-3xl mx-auto mb-12">
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+          <div className="max-w-4xl mx-auto mb-16">
+            <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
               {t('bio')}
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          {/* Boutons d'action avec design amélioré */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
             <Button 
               size="lg" 
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold"
+              className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover-lift"
             >
               {t('downloadCV')}
             </Button>
@@ -46,23 +63,32 @@ const Hero = () => {
               variant="outline" 
               size="lg"
               onClick={scrollToContact}
-              className="border-blue-600 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950 px-8 py-3 text-lg font-semibold"
+              className="group border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-10 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover-lift"
             >
               {t('contactMe')}
             </Button>
           </div>
           
-          <div className="flex justify-center space-x-6">
-            <Button variant="ghost" size="sm" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400">
-              <Linkedin className="h-6 w-6" />
+          {/* Réseaux sociaux avec animations */}
+          <div className="flex justify-center space-x-8 mb-16">
+            <Button variant="ghost" size="lg" className="group text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110">
+              <Linkedin className="h-8 w-8" />
             </Button>
-            <Button variant="ghost" size="sm" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400">
-              <Github className="h-6 w-6" />
+            <Button variant="ghost" size="lg" className="group text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110">
+              <Github className="h-8 w-8" />
             </Button>
-            <Button variant="ghost" size="sm" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400">
-              <Mail className="h-6 w-6" />
+            <Button variant="ghost" size="lg" className="group text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110">
+              <Mail className="h-8 w-8" />
             </Button>
           </div>
+
+          {/* Indicateur de scroll */}
+          <button 
+            onClick={scrollToProjects}
+            className="animate-bounce text-slate-400 hover:text-blue-600 transition-colors duration-300"
+          >
+            <ArrowDown className="h-6 w-6 mx-auto" />
+          </button>
         </div>
       </div>
     </section>
