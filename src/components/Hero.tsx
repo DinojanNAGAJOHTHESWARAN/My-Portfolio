@@ -28,7 +28,7 @@ const Hero = () => {
           <div className="mb-8 flex justify-center">
             <Avatar className="w-32 h-32 ring-4 ring-blue-200 dark:ring-blue-800 shadow-xl">
               <AvatarImage 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" 
+                src="/profile_picture.jpg" 
                 alt="Dinojan Nagajohtheswaran"
                 className="object-cover"
               />
