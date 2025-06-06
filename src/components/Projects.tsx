@@ -10,7 +10,7 @@ const Projects = () => {
   const navigate = useNavigate();
 
   const projects = [
-     {
+    {
       id: 1,
       title: {
         en: "AI-powered Lead Scoring for Malt",
