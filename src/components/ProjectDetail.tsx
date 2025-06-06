@@ -238,6 +238,37 @@ const ProjectDetail = () => {
                 </p>
               </CardContent>
             </Card>
+
+            {/* External Resources */}
+            <Card className="glass-effect border-0 shadow-xl">
+              <CardHeader>
+                <CardTitle className="text-slate-900 dark:text-white">
+                  {language === "fr" ? "Ressources supplémentaires" : "Additional Resources"}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-col md:flex-row gap-4">
+                  <a 
+                    href="https://judicious-profit-bcc.notion.site/Premier-rendu-Team-10-1a600279629f80b488e2c7d134b200e2" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    {language === "fr" ? "Voir sur Notion" : "View on Notion"}
+                  </a>
+            
+                  <a 
+                    href="/premier-rendu.pptx" 
+                    download 
+                    className="inline-flex items-center justify-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+                  >
+                    <ArrowLeft className="w-4 h-4 rotate-90 mr-2" />
+                    {language === "fr" ? "Télécharger le PPTX" : "Download PPTX"}
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Workflow/Process Image - Shows the technical implementation */}
