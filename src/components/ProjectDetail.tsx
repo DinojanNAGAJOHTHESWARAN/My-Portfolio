@@ -3,7 +3,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ArrowLeft, ExternalLink, Calendar, Target, Lightbulb, TrendingUp, Users, Zap, Database } from "lucide-react";
 
 const ProjectDetail = () => {
@@ -27,8 +26,24 @@ const ProjectDetail = () => {
         fr: "Améliorer l'efficacité des campagnes et les performances commerciales en automatisant la qualification, le scoring et la segmentation des leads. Il s'agit d'utiliser l'IA pour identifier les prospects à fort potentiel, optimiser les efforts marketing et assurer un passage fluide et basé sur les données vers les équipes commerciales."
       },
       approach: {
-        en: `We built a group project with a clearly defined workflow that automates the lead scoring process using Make (Integromat). Data from Google Sheets—aggregating traffic, LinkedIn Ads, and Salesforce activity—is extracted and processed. The Mistral AI model scores leads based on custom rules, and updates are made in real-time.\n\nThe workflow includes:\n\n- Real-time scoring and segmentation (1–3 tiers)\n- Gmail for personalized email dispatch to prospects\n- Calendly for automated scheduling of meetings with Sales\n- Slack notifications to Sales teams regarding high-quality leads and booked meetings\n\nThese systems communicate seamlessly to reduce manual operations and improve commercial reactivity.\n\n[View Project Details](https://judicious-profit-bcc.notion.site/Premier-rendu-Team-10-1a600279629f80b488e2c7d134b200e2)`,
-        fr: `Ce projet de groupe a été conçu avec un workflow précis pour automatiser le scoring des leads à l'aide de Make (Integromat). Les données issues de Google Sheets – centralisant le trafic, les campagnes LinkedIn Ads et les interactions sur Salesforce – sont extraites et traitées. L'IA Mistral attribue un score aux leads selon des règles prédéfinies, avec des mises à jour en temps réel.\n\nLe processus inclut :\n\n- Un scoring en temps réel avec segmentation en 3 niveaux\n- L'envoi d'e-mails personnalisés via Gmail\n- La prise de rendez-vous automatisée avec Calendly\n- Des notifications sur Slack à destination des équipes Sales concernant les leads à fort potentiel et les réunions planifiées\n\n[Voir le projet complet](https://judicious-profit-bcc.notion.site/Premier-rendu-Team-10-1a600279629f80b488e2c7d134b200e2)`
+        en: `We built a group project with a clearly defined workflow that automates the lead scoring process using Make (Integromat). Data from Google Sheets—aggregating traffic, LinkedIn Ads, and Salesforce activity—is extracted and processed. The Mistral AI model scores leads based on custom rules, and updates are made in real-time.
+
+The workflow includes:
+
+• Real-time scoring and segmentation (1–3 tiers)
+• Gmail for personalized email dispatch to prospects
+• Calendly for automated scheduling of meetings with Sales
+• Slack notifications to Sales teams regarding high-quality leads and booked meetings
+
+These systems communicate seamlessly to reduce manual operations and improve commercial reactivity.`,
+        fr: `Ce projet de groupe a été conçu avec un workflow précis pour automatiser le scoring des leads à l'aide de Make (Integromat). Les données issues de Google Sheets – centralisant le trafic, les campagnes LinkedIn Ads et les interactions sur Salesforce – sont extraites et traitées. L'IA Mistral attribue un score aux leads selon des règles prédéfinies, avec des mises à jour en temps réel.
+
+Le processus inclut :
+
+• Un scoring en temps réel avec segmentation en 3 niveaux
+• L'envoi d'e-mails personnalisés via Gmail
+• La prise de rendez-vous automatisée avec Calendly
+• Des notifications sur Slack à destination des équipes Sales concernant les leads à fort potentiel et les réunions planifiées`
       },
       results: {
         en: "Real-time, AI-powered scoring of leads\nDrastically improved prioritization of high-quality prospects\nEnhanced coordination between marketing and sales\nTime savings and reduced manual tasks\nCentralized and cleaned data improving reporting capabilities",
@@ -162,7 +177,7 @@ const ProjectDetail = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-      <div className="container mx-auto max-w-6xl px-4 py-8">
+      <div className="container mx-auto max-w-7xl px-4 py-8">
         <Button 
           variant="outline" 
           onClick={() => navigate("/")}
@@ -172,80 +187,74 @@ const ProjectDetail = () => {
           {language === "fr" ? "Retour aux projets" : "Back to projects"}
         </Button>
 
-        <div className="space-y-12">
-          {/* Enhanced Header with gradient background */}
+        <div className="space-y-16">
+          {/* Enhanced Header */}
           <div className="text-center relative">
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 via-blue-500/10 to-purple-500/10 rounded-3xl blur-3xl"></div>
-            <div className="relative z-10 py-12">
+            <div className="relative z-10 py-16 px-8">
               <Badge 
                 variant="outline" 
-                className={`text-transparent bg-gradient-to-r ${project.gradient} bg-clip-text border-blue-200 dark:border-blue-800 mb-6 text-lg px-6 py-2`}
+                className={`text-transparent bg-gradient-to-r ${project.gradient} bg-clip-text border-blue-200 dark:border-blue-800 mb-8 text-lg px-8 py-3 font-medium`}
               >
                 {project.type}
               </Badge>
-              <h1 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-8 leading-tight max-w-5xl mx-auto">
                 {project.title[language]}
               </h1>
-              <div className="flex justify-center gap-6 text-lg text-slate-600 dark:text-slate-400">
-                <span className="flex items-center gap-2">
-                  <Calendar className="h-5 w-5 text-blue-500" />
-                  {project.duration}
+              <div className="flex justify-center gap-8 text-lg text-slate-600 dark:text-slate-400">
+                <span className="flex items-center gap-3">
+                  <Calendar className="h-6 w-6 text-blue-500" />
+                  <span className="font-medium">{project.duration}</span>
                 </span>
-                <span className="flex items-center gap-2">
-                  <Users className="h-5 w-5 text-green-500" />
-                  {project.client}
+                <span className="flex items-center gap-3">
+                  <Users className="h-6 w-6 text-green-500" />
+                  <span className="font-medium">{project.client}</span>
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Enhanced Image Carousel for first project */}
+          {/* Fixed Images Grid for first project */}
           {project.id === 1 && project.images && (
             <Card className="glass-effect border-0 shadow-2xl overflow-hidden">
-              <CardHeader className="text-center pb-0">
-                <CardTitle className="text-slate-900 dark:text-white text-2xl">
+              <CardHeader className="text-center pb-6">
+                <CardTitle className="text-slate-900 dark:text-white text-3xl font-bold">
                   {language === "fr" ? "Galerie du Projet" : "Project Gallery"}
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-8">
-                <Carousel className="w-full max-w-4xl mx-auto">
-                  <CarouselContent>
-                    {project.images.map((image, index) => (
-                      <CarouselItem key={index}>
-                        <div className="relative group">
-                          <img 
-                            src={image.url} 
-                            alt={image.title[language]}
-                            className="w-full h-96 object-cover rounded-xl shadow-lg transition-transform duration-300 group-hover:scale-105"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl"></div>
-                          <div className="absolute bottom-6 left-6 right-6">
-                            <h3 className="text-white text-xl font-bold">
-                              {image.title[language]}
-                            </h3>
-                          </div>
-                        </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <CarouselPrevious className="glass-effect border-0 shadow-lg" />
-                  <CarouselNext className="glass-effect border-0 shadow-lg" />
-                </Carousel>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {project.images.map((image, index) => (
+                    <div key={index} className="relative group overflow-hidden rounded-2xl shadow-xl">
+                      <img 
+                        src={image.url} 
+                        alt={image.title[language]}
+                        className="w-full h-64 md:h-72 object-cover transition-all duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 className="text-white text-xl font-bold">
+                          {image.title[language]}
+                        </h3>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </CardContent>
             </Card>
           )}
 
           {/* Fallback hero image for other projects */}
           {project.id !== 1 && (
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img 
                 src={project.heroImage} 
                 alt={project.title[language]}
-                className="w-full h-64 md:h-80 object-cover"
+                className="w-full h-72 md:h-96 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-              <div className="absolute bottom-6 left-6">
-                <h2 className="text-white text-xl md:text-2xl font-bold">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-8 left-8">
+                <h2 className="text-white text-2xl md:text-3xl font-bold">
                   {language === "fr" ? "Aperçu du projet" : "Project Overview"}
                 </h2>
               </div>
@@ -253,70 +262,74 @@ const ProjectDetail = () => {
           )}
 
           {/* Enhanced project details grid */}
-          <div className="grid lg:grid-cols-2 gap-8">
-            <Card className="glass-effect border-0 shadow-xl hover-lift group">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-3 text-slate-900 dark:text-white">
-                  <div className="p-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600">
-                    <Lightbulb className="h-6 w-6 text-white" />
+          <div className="grid lg:grid-cols-2 gap-10">
+            <Card className="glass-effect border-0 shadow-2xl hover-lift group">
+              <CardHeader className="pb-6">
+                <CardTitle className="flex items-center gap-4 text-slate-900 dark:text-white text-2xl">
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg">
+                    <Lightbulb className="h-7 w-7 text-white" />
                   </div>
                   {t('context')}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+              <CardContent className="px-8 pb-8">
+                <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-lg font-light">
                   {project.context[language]}
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="glass-effect border-0 shadow-xl hover-lift group">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-3 text-slate-900 dark:text-white">
-                  <div className="p-2 rounded-lg bg-gradient-to-r from-green-500 to-green-600">
-                    <Target className="h-6 w-6 text-white" />
+            <Card className="glass-effect border-0 shadow-2xl hover-lift group">
+              <CardHeader className="pb-6">
+                <CardTitle className="flex items-center gap-4 text-slate-900 dark:text-white text-2xl">
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-green-500 to-green-600 shadow-lg">
+                    <Target className="h-7 w-7 text-white" />
                   </div>
                   {t('objective')}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+              <CardContent className="px-8 pb-8">
+                <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-lg font-light">
                   {project.objective[language]}
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="glass-effect border-0 shadow-xl hover-lift group">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-3 text-slate-900 dark:text-white">
-                  <div className="p-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600">
-                    <Zap className="h-6 w-6 text-white" />
+            <Card className="glass-effect border-0 shadow-2xl hover-lift group lg:col-span-2">
+              <CardHeader className="pb-6">
+                <CardTitle className="flex items-center gap-4 text-slate-900 dark:text-white text-2xl">
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500 to-purple-600 shadow-lg">
+                    <Zap className="h-7 w-7 text-white" />
                   </div>
                   {language === "fr" ? "Approche" : "Approach"}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg whitespace-pre-line">
-                  {project.approach[language]}
-                </p>
+              <CardContent className="px-8 pb-8">
+                <div className="text-slate-700 dark:text-slate-300 leading-relaxed text-lg font-light space-y-4">
+                  {project.approach[language].split('\n\n').map((paragraph, index) => (
+                    <p key={index} className="whitespace-pre-line">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
               </CardContent>
             </Card>
 
-            <Card className="glass-effect border-0 shadow-xl hover-lift group">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-3 text-slate-900 dark:text-white">
-                  <div className="p-2 rounded-lg bg-gradient-to-r from-emerald-500 to-emerald-600">
-                    <TrendingUp className="h-6 w-6 text-white" />
+            <Card className="glass-effect border-0 shadow-2xl hover-lift group lg:col-span-2">
+              <CardHeader className="pb-6">
+                <CardTitle className="flex items-center gap-4 text-slate-900 dark:text-white text-2xl">
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 shadow-lg">
+                    <TrendingUp className="h-7 w-7 text-white" />
                   </div>
                   {t('results')}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
+              <CardContent className="px-8 pb-8">
+                <div className="space-y-4">
                   {project.results[language].split('\n').map((result, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="text-emerald-600 dark:text-emerald-400 font-medium leading-relaxed">
+                    <div key={index} className="flex items-start gap-4 group/item">
+                      <div className="w-3 h-3 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full mt-2 flex-shrink-0 shadow-sm group-hover/item:scale-110 transition-transform"></div>
+                      <p className="text-emerald-700 dark:text-emerald-300 font-medium leading-relaxed text-lg">
                         {result}
                       </p>
                     </div>
@@ -328,11 +341,11 @@ const ProjectDetail = () => {
 
           {/* Enhanced workflow image for other projects */}
           {project.id !== 1 && project.workflowImage && (
-            <Card className="glass-effect border-0 shadow-xl overflow-hidden hover-lift">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-3 text-slate-900 dark:text-white">
-                  <div className="p-2 rounded-lg bg-gradient-to-r from-indigo-500 to-indigo-600">
-                    <Database className="h-6 w-6 text-white" />
+            <Card className="glass-effect border-0 shadow-2xl overflow-hidden hover-lift">
+              <CardHeader className="pb-6">
+                <CardTitle className="flex items-center gap-4 text-slate-900 dark:text-white text-2xl">
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-600 shadow-lg">
+                    <Database className="h-7 w-7 text-white" />
                   </div>
                   {language === "fr" ? "Architecture technique" : "Technical Architecture"}
                 </CardTitle>
@@ -341,26 +354,26 @@ const ProjectDetail = () => {
                 <img 
                   src={project.workflowImage} 
                   alt={language === "fr" ? "Architecture du projet" : "Project Architecture"}
-                  className="w-full h-48 md:h-64 object-cover"
+                  className="w-full h-56 md:h-72 object-cover"
                 />
               </CardContent>
             </Card>
           )}
 
           {/* Enhanced tools section */}
-          <Card className="glass-effect border-0 shadow-xl hover-lift">
-            <CardHeader>
-              <CardTitle className="text-slate-900 dark:text-white text-2xl">
+          <Card className="glass-effect border-0 shadow-2xl hover-lift">
+            <CardHeader className="pb-8">
+              <CardTitle className="text-slate-900 dark:text-white text-3xl font-bold text-center">
                 {language === "fr" ? "Technologies & Outils" : "Technologies & Tools"}
               </CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <CardContent className="px-8 pb-8">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                 {project.tools.map((tool) => (
                   <Badge 
                     key={tool} 
                     variant="secondary" 
-                    className="px-4 py-3 bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 text-slate-700 dark:text-slate-300 text-center justify-center hover:scale-105 transition-transform duration-200 shadow-lg"
+                    className="px-6 py-4 bg-gradient-to-br from-slate-100 via-slate-50 to-white dark:from-slate-800 dark:via-slate-700 dark:to-slate-600 text-slate-700 dark:text-slate-200 text-center justify-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border border-slate-200 dark:border-slate-600 text-sm font-medium"
                   >
                     {tool}
                   </Badge>
@@ -371,22 +384,22 @@ const ProjectDetail = () => {
 
           {/* Enhanced external resources for first project */}
           {project.id === 1 && (
-            <Card className="glass-effect border-0 shadow-xl hover-lift">
-              <CardHeader>
-                <CardTitle className="text-slate-900 dark:text-white text-2xl">
+            <Card className="glass-effect border-0 shadow-2xl hover-lift">
+              <CardHeader className="pb-8">
+                <CardTitle className="text-slate-900 dark:text-white text-3xl font-bold text-center">
                   {language === "fr" ? "Ressources & Documentation" : "Resources & Documentation"}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="grid md:grid-cols-2 gap-6">
+              <CardContent className="px-8 pb-8">
+                <div className="grid md:grid-cols-2 gap-8">
                   <a 
                     href="https://judicious-profit-bcc.notion.site/Premier-rendu-Team-10-1a600279629f80b488e2c7d134b200e2" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-center px-6 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    className="group flex items-center justify-center px-8 py-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
                   >
-                    <ExternalLink className="w-5 h-5 mr-3 group-hover:rotate-12 transition-transform" />
-                    <span className="font-medium">
+                    <ExternalLink className="w-6 h-6 mr-4 group-hover:rotate-12 transition-transform" />
+                    <span className="font-semibold text-lg">
                       {language === "fr" ? "Documentation Complète" : "Complete Documentation"}
                     </span>
                   </a>
@@ -394,10 +407,10 @@ const ProjectDetail = () => {
                   <a 
                     href="/Rendu_Malt.pdf" 
                     download 
-                    className="group flex items-center justify-center px-6 py-4 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    className="group flex items-center justify-center px-8 py-6 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-2xl hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
                   >
-                    <ArrowLeft className="w-5 h-5 rotate-90 mr-3 group-hover:translate-y-1 transition-transform" />
-                    <span className="font-medium">
+                    <ArrowLeft className="w-6 h-6 rotate-90 mr-4 group-hover:translate-y-1 transition-transform" />
+                    <span className="font-semibold text-lg">
                       {language === "fr" ? "Présentation PDF" : "PDF Presentation"}
                     </span>
                   </a>
