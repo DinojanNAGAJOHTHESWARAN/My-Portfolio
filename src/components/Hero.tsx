@@ -28,9 +28,9 @@ const Hero = () => {
           <div className="mb-8 flex justify-center">
             <Avatar className="w-32 h-32 ring-4 ring-blue-200 dark:ring-blue-800 shadow-xl">
               <AvatarImage 
-                src="/profile_picture.jpg?w=150&h=150&fit=crop&crop=face"
+                src="/profile_picture.jpg"
                 alt="Dinojan Nagajohtheswaran"
-                className="object-cover object-top scale-125"
+                className="object-cover"
               />
               <AvatarFallback className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
                 DN
