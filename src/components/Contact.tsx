@@ -85,7 +85,7 @@ const Contact = () => {
               <CardContent className="p-6">
                 <h3 className="text-lg font-bold mb-2">Disponible pour</h3>
                 <ul className="space-y-2 text-sm">
-                  <li>• Missions d'automatisation</li>
+                  <li>• {t("mission_automation")}</li>
                   <li>• Projets data & analytics</li>
                   <li>• Consulting no-code</li>
                   <li>• Formations Make/Zapier</li>
