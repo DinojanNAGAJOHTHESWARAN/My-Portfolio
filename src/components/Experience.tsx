@@ -154,7 +154,7 @@ const Experience = () => {
                     <div className="flex justify-between items-start">
                       <div>
                         <CardTitle className="text-lg font-bold text-slate-900 dark:text-white">
-                          {exp.title[language]}
+                          {edu.title[language] ?? edu.title.en}
                         </CardTitle>
                         <CardDescription className="text-blue-600 dark:text-blue-400 font-medium">
                           {exp.company} • {exp.location}
