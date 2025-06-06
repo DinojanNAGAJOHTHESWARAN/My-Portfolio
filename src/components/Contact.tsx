@@ -68,15 +68,15 @@ const Contact = () => {
               <CardContent className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-blue-600" />
-                  <span className="text-slate-700 dark:text-slate-300">dinojan.naga@example.com</span>
+                  <span className="text-slate-700 dark:text-slate-300">dnagajohtheswaran@gmail.com</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Linkedin className="h-5 w-5 text-blue-600" />
-                  <span className="text-slate-700 dark:text-slate-300">LinkedIn: Dinojan NagaJohtheswaran</span>
+                  <span className="text-slate-700 dark:text-slate-300">LinkedIn: Dinojan Nagajohtheswaran</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Github className="h-5 w-5 text-blue-600" />
-                  <span className="text-slate-700 dark:text-slate-300">GitHub: @dinojan</span>
+                  <span className="text-slate-700 dark:text-slate-300">GitHub: @DinojanNAGAJOHTHESWARAN</span>
                 </div>
               </CardContent>
             </Card>
