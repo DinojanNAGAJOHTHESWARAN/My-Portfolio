@@ -4,7 +4,7 @@ import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Hero = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage(); // Added language here
 
   const scrollToContact = () => {
     const element = document.getElementById('contact');
@@ -19,6 +19,9 @@ const Hero = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Set CV file depending on language, default to English if not French
+  const cvFile = language === 'fr' ? '/cv-fr.pdf' : '/cv-en.pdf';
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center pt-16 px-4 relative">
@@ -68,12 +71,14 @@ const Hero = () => {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Button 
-              size="lg" 
-              className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover-lift"
-            >
-              {t('downloadCV')}
-            </Button>
+            <a href={cvFile} download target="_blank" rel="noopener noreferrer">
+              <Button 
+                size="lg" 
+                className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover-lift"
+              >
+                {t('downloadCV')}
+              </Button>
+            </a>
             <Button 
               variant="outline" 
               size="lg"
