@@ -23,7 +23,7 @@ const Experience = () => {
         fr: "Procédures d'encaissement, Règles de tenue de caisse, Réalisation du comptage des fonds de caisses.",
         en: "Cash collection procedures, Cash handling rules,Performing cash register fund counting."
       },
-      skills: ["Make", "Zapier", "Python", "HubSpot", "SQL"]
+      skills: ["TPE", "Logiciels de caisse"]
     },
     {
       type: "work",
@@ -41,7 +41,7 @@ const Experience = () => {
         fr: "Automatisation des processus business complexes, développement de workflows avec Make et Zapier, optimisation des systèmes CRM et création de dashboards analytiques.",
         en: "Automation of complex business processes, workflow development with Make and Zapier, CRM systems optimization and analytical dashboards creation."
       },
-      skills: ["TPE", "Logiciels de caisse"]
+      skills: ["Make", "Zapier", "Python", "HubSpot", "SQL"]
     },
     {
       type: "work",
