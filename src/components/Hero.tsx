@@ -1,4 +1,3 @@
-
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
@@ -39,7 +38,7 @@ const Hero = () => {
             </Avatar>
           </div>
 
-          {/* Badge de présentation */}
+          {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 mb-8 bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-full border border-blue-200 dark:border-blue-800">
             <span className="text-sm font-medium text-blue-700 dark:text-blue-300">
               ✨ Spécialiste Automatisation & Data
@@ -51,22 +50,22 @@ const Hero = () => {
               {t('name')}
             </span>
           </h1>
-          
+
           <h2 className="text-3xl md:text-4xl font-semibold text-slate-700 dark:text-slate-300 mb-6">
             {t('title')}
           </h2>
-          
+
           <p className="text-2xl md:text-3xl text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text mb-12 font-medium">
             "{t('tagline')}"
           </p>
-          
+
           <div className="max-w-4xl mx-auto mb-16">
             <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
               {t('bio')}
             </p>
           </div>
-          
-          {/* Boutons d'action avec design amélioré */}
+
+          {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
             <Button 
               size="lg" 
@@ -83,21 +82,40 @@ const Hero = () => {
               {t('contactMe')}
             </Button>
           </div>
-          
-          {/* Réseaux sociaux avec animations */}
+
+          {/* Social Icons */}
           <div className="flex justify-center space-x-8 mb-16">
-            <Button variant="ghost" size="lg" className="group text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110">
-              <Linkedin className="h-8 w-8" />
-            </Button>
-            <Button variant="ghost" size="lg" className="group text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110">
-              <Github className="h-8 w-8" />
-            </Button>
-            <Button variant="ghost" size="lg" className="group text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110">
-              <Mail className="h-8 w-8" />
-            </Button>
+            <a
+              href="https://www.linkedin.com/in/dinojan-nagajohtheswaran-99a745150/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <Button variant="ghost" size="lg" className="group text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110">
+                <Linkedin className="h-8 w-8" />
+              </Button>
+            </a>
+            <a
+              href="https://github.com/DinojanNAGAJOHTHESWARAN"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <Button variant="ghost" size="lg" className="group text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110">
+                <Github className="h-8 w-8" />
+              </Button>
+            </a>
+            <a
+              href="mailto:dnagajohtheswaran@gmail.com"
+              aria-label="Email"
+            >
+              <Button variant="ghost" size="lg" className="group text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110">
+                <Mail className="h-8 w-8" />
+              </Button>
+            </a>
           </div>
 
-          {/* Indicateur de scroll */}
+          {/* Scroll Indicator */}
           <button 
             onClick={scrollToProjects}
             className="animate-bounce text-slate-400 hover:text-blue-600 transition-colors duration-300"
