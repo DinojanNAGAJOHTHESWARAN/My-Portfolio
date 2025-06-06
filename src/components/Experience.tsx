@@ -10,20 +10,38 @@ const Experience = () => {
     {
       type: "work",
       title: {
+        fr: "Caissier",
+        en: "Teller"
+      },
+      company: "ACE ÉNERGIE",
+      location: "Paris, France",
+      period: {
+        fr: "Août 2019 - Aujourd'hui",
+        en: "August 2019 - Present"
+      },
+      description: {
+        fr: "Procédures d'encaissement, Règles de tenue de caisse, Réalisation du comptage des fonds de caisses.",
+        en: "Cash collection procedures, Cash handling rules,Performing cash register fund counting."
+      },
+      skills: ["Make", "Zapier", "Python", "HubSpot", "SQL"]
+    },
+    {
+      type: "work",
+      title: {
         fr: "Chargé d'automatisation",
         en: "Automation Specialist"
       },
       company: "ACE ÉNERGIE",
       location: "Paris, France",
       period: {
-        fr: "2024 - Aujourd'hui",
-        en: "2024 - Present"
+        fr: "Novembre 2024 - Aujourd'hui",
+        en: "November 2024 - Present"
       },
       description: {
         fr: "Automatisation des processus business complexes, développement de workflows avec Make et Zapier, optimisation des systèmes CRM et création de dashboards analytiques.",
         en: "Automation of complex business processes, workflow development with Make and Zapier, CRM systems optimization and analytical dashboards creation."
       },
-      skills: ["Make", "Zapier", "Airtable", "HubSpot", "Power BI"]
+      skills: ["TPE", "Logiciels de caisse"]
     },
     {
       type: "work",
@@ -34,14 +52,14 @@ const Experience = () => {
       company: "DICOM - Ministère de l'Intérieur",
       location: "Paris, France",
       period: {
-        fr: "2024",
-        en: "2024"
+        fr: "Avril 2024",
+        en: "April 2024"
       },
       description: {
         fr: "Gestion de projets de transformation numérique, coordination d'équipes multidisciplinaires et optimisation des processus internes.",
         en: "Digital transformation project management, multidisciplinary team coordination and internal process optimization."
       },
-      skills: ["Gestion de projet", "Transformation digitale", "Coordination", "Process"]
+      skills: ["Eulerian (Analytics)", "Transformation digitale", "Coordination", "Process"]
     },
     {
       type: "work",
@@ -56,10 +74,10 @@ const Experience = () => {
         en: "2023"
       },
       description: {
-        fr: "Développement de stratégies marketing digitales, automatisation des campagnes et analyse des performances avec Google Analytics.",
-        en: "Digital marketing strategy development, campaign automation and performance analysis with Google Analytics."
+        fr: "Développement de stratégies marketing digitales, automatisation des campagnes et création de site internet.",
+        en: "Digital marketing strategy development, campaign automation and website creation."
       },
-      skills: ["Marketing Digital", "Google Analytics", "Automatisation", "SEO"]
+      skills: ["Marketing Digital", "HTML/CSS", "SEO"]
     }
   ];
 
@@ -75,8 +93,8 @@ const Experience = () => {
         en: "2024 - 2026"
       },
       description: {
-        fr: "Formation spécialisée en intelligence artificielle appliquée au business, avec focus sur l'automatisation et l'analyse de données.",
-        en: "Specialized training in artificial intelligence applied to business, with focus on automation and data analysis."
+        fr: "Formation spécialisée en intelligence artificielle appliquée au business, avec focus sur l'automatisation et l'IA.",
+        en: "Specialized training in artificial intelligence applied to business, with focus on automation and AI."
       }
     },
     {
