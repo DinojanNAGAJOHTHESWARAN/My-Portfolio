@@ -30,7 +30,7 @@ const Hero = () => {
               <AvatarImage 
                 src="/profile_picture.jpg" 
                 alt="Dinojan Nagajohtheswaran"
-                className="object-cover"
+                className="object-cover object-top scale-125"
               />
               <AvatarFallback className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
                 DN
