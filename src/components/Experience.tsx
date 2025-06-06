@@ -13,7 +13,7 @@ const Experience = () => {
         fr: "Caissier",
         en: "Teller"
       },
-      company: "ACE ÉNERGIE",
+      company: "ACE ENERGIE",
       location: "Paris, France",
       period: {
         fr: "Août 2019 - Aujourd'hui",
