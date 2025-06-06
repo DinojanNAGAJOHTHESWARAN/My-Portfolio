@@ -1,12 +1,13 @@
-
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Eye } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Projects = () => {
   const { t, language } = useLanguage();
+  const navigate = useNavigate();
 
   const projects = [
     {
@@ -89,6 +90,10 @@ const Projects = () => {
     }
   ];
 
+  const handleProjectClick = (projectId: number) => {
+    navigate(`/project/${projectId}`);
+  };
+
   return (
     <section id="projects" className="py-32 px-4 relative">
       <div className="container mx-auto max-w-7xl">
@@ -107,8 +112,9 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card 
               key={project.id} 
-              className="group glass-effect hover-lift border-0 shadow-xl overflow-hidden animate-fade-in-up"
+              className="group glass-effect hover-lift border-0 shadow-xl overflow-hidden animate-fade-in-up cursor-pointer"
               style={{ animationDelay: `${index * 0.2}s` }}
+              onClick={() => handleProjectClick(project.id)}
             >
               {/* Header avec gradient */}
               <div className={`h-2 bg-gradient-to-r ${project.gradient}`}></div>
@@ -169,9 +175,13 @@ const Projects = () => {
                 <Button 
                   variant="outline" 
                   className="w-full mt-6 group-hover:bg-gradient-to-r group-hover:from-blue-50 group-hover:to-indigo-50 dark:group-hover:from-blue-950 dark:group-hover:to-indigo-950 transition-all duration-300 border-blue-200 dark:border-blue-800"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleProjectClick(project.id);
+                  }}
                 >
                   <ExternalLink className="h-4 w-4 mr-2" />
-                  Voir le projet
+                  {language === "fr" ? "Voir le projet" : "View project"}
                 </Button>
               </CardContent>
             </Card>

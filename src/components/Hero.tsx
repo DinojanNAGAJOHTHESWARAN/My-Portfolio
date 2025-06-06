@@ -2,6 +2,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -24,6 +25,20 @@ const Hero = () => {
     <section id="hero" className="min-h-screen flex items-center justify-center pt-16 px-4 relative">
       <div className="container mx-auto max-w-5xl text-center">
         <div className="animate-fade-in-up">
+          {/* Profile Picture */}
+          <div className="mb-8 flex justify-center">
+            <Avatar className="w-32 h-32 ring-4 ring-blue-200 dark:ring-blue-800 shadow-xl">
+              <AvatarImage 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" 
+                alt="Dinojan Nagajohtheswaran"
+                className="object-cover"
+              />
+              <AvatarFallback className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+                DN
+              </AvatarFallback>
+            </Avatar>
+          </div>
+
           {/* Badge de présentation */}
           <div className="inline-flex items-center px-4 py-2 mb-8 bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-full border border-blue-200 dark:border-blue-800">
             <span className="text-sm font-medium text-blue-700 dark:text-blue-300">
