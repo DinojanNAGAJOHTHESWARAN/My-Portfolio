@@ -9,8 +9,9 @@ import { Mail, Linkedin, Github } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
-  const { t } = useLanguage();
+  const { language } = useLanguage();
   const { toast } = useToast();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,16 +19,87 @@ const Contact = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const content = {
+    title: {
+      fr: "Contact",
+      en: "Contact"
+    },
+    subtitle: {
+      fr: "N'hésitez pas à me contacter",
+      en: "Feel free to reach out"
+    },
+    directContact: {
+      fr: "Contactez-moi directement",
+      en: "Contact me directly"
+    },
+    directContactDesc: {
+      fr: "Plusieurs moyens pour discuter de votre projet",
+      en: "Several ways to discuss your project"
+    },
+    availableFor: {
+      fr: "Disponible pour",
+      en: "Available for"
+    },
+    availability: {
+      fr: [
+        "Missions d'automatisation",
+        "Projets Data & Analytics",
+        "Conseil en No-code",
+        "Formation sur Make/Zapier"
+      ],
+      en: [
+        "Automation missions",
+        "Data & Analytics projects",
+        "No-code consulting",
+        "Make/Zapier training"
+      ]
+    },
+    sendMessage: {
+      fr: "Envoyez-moi un message",
+      en: "Send me a message"
+    },
+    sendMessageDesc: {
+      fr: "Je réponds généralement sous 24h",
+      en: "I usually respond within 24 hours"
+    },
+    name: {
+      fr: "Nom",
+      en: "Name"
+    },
+    email: {
+      fr: "E-mail",
+      en: "Email"
+    },
+    message: {
+      fr: "Message",
+      en: "Message"
+    },
+    send: {
+      fr: "Envoyer",
+      en: "Send"
+    },
+    sending: {
+      fr: "Envoi...",
+      en: "Sending..."
+    },
+    toastTitle: {
+      fr: "Message envoyé !",
+      en: "Message sent!"
+    },
+    toastDesc: {
+      fr: "Je vous répondrai dès que possible.",
+      en: "I'll get back to you as soon as possible."
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-
-    // Simulate form submission
     setTimeout(() => {
       setIsLoading(false);
       toast({
-        title: "Message envoyé !",
-        description: "Je vous répondrai dans les plus brefs délais.",
+        title: content.toastTitle[language],
+        description: content.toastDesc[language]
       });
       setFormData({ name: "", email: "", message: "" });
     }, 1000);
@@ -45,10 +117,10 @@ const Contact = () => {
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-            {t('contactTitle')}
+            {content.title[language]}
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            {t('contactSubtitle')}
+            {content.subtitle[language]}
           </p>
         </div>
 
@@ -58,36 +130,39 @@ const Contact = () => {
             <Card className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-0 shadow-lg">
               <CardHeader>
                 <CardTitle className="text-xl font-bold text-slate-900 dark:text-white">
-                  Contactez-moi directement
+                  {content.directContact[language]}
                 </CardTitle>
-                <CardDescription>
-                  Plusieurs façons de me joindre pour discuter de vos projets
-                </CardDescription>
+                <CardDescription>{content.directContactDesc[language]}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-blue-600" />
-                  <span className="text-slate-700 dark:text-slate-300">dnagajohtheswaran@gmail.com</span>
+                  <span className="text-slate-700 dark:text-slate-300">
+                    dnagajohtheswaran@gmail.com
+                  </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Linkedin className="h-5 w-5 text-blue-600" />
-                  <span className="text-slate-700 dark:text-slate-300">LinkedIn: Dinojan Nagajohtheswaran</span>
+                  <span className="text-slate-700 dark:text-slate-300">
+                    LinkedIn: Dinojan Nagajohtheswaran
+                  </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Github className="h-5 w-5 text-blue-600" />
-                  <span className="text-slate-700 dark:text-slate-300">GitHub: @DinojanNAGAJOHTHESWARAN</span>
+                  <span className="text-slate-700 dark:text-slate-300">
+                    GitHub: @DinojanNAGAJOHTHESWARAN
+                  </span>
                 </div>
               </CardContent>
             </Card>
 
             <Card className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-0">
               <CardContent className="p-6">
-                <h3 className="text-lg font-bold mb-2">Disponible pour</h3>
+                <h3 className="text-lg font-bold mb-2">{content.availableFor[language]}</h3>
                 <ul className="space-y-2 text-sm">
-                  <li>• Missions d'automatisation</li>
-                  <li>• Projets data & analytics</li>
-                  <li>• Consulting no-code</li>
-                  <li>• Formations Make/Zapier</li>
+                  {content.availability[language].map((item, index) => (
+                    <li key={index}>• {item}</li>
+                  ))}
                 </ul>
               </CardContent>
             </Card>
@@ -97,16 +172,14 @@ const Contact = () => {
           <Card className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-0 shadow-lg">
             <CardHeader>
               <CardTitle className="text-xl font-bold text-slate-900 dark:text-white">
-                Envoyez-moi un message
+                {content.sendMessage[language]}
               </CardTitle>
-              <CardDescription>
-                Je vous réponds généralement sous 24h
-              </CardDescription>
+              <CardDescription>{content.sendMessageDesc[language]}</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <Label htmlFor="name">{t('name_field')}</Label>
+                  <Label htmlFor="name">{content.name[language]}</Label>
                   <Input
                     id="name"
                     name="name"
@@ -117,7 +190,7 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="email">{t('email_field')}</Label>
+                  <Label htmlFor="email">{content.email[language]}</Label>
                   <Input
                     id="email"
                     name="email"
@@ -129,7 +202,7 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="message">{t('message_field')}</Label>
+                  <Label htmlFor="message">{content.message[language]}</Label>
                   <Textarea
                     id="message"
                     name="message"
@@ -145,7 +218,7 @@ const Contact = () => {
                   disabled={isLoading}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                 >
-                  {isLoading ? "Envoi en cours..." : t('send')}
+                  {isLoading ? content.sending[language] : content.send[language]}
                 </Button>
               </form>
             </CardContent>
