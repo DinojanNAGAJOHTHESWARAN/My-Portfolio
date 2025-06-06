@@ -21,7 +21,7 @@ const Experience = () => {
       },
       description: {
         fr: "Procédures d'encaissement, Règles de tenue de caisse, Réalisation du comptage des fonds de caisses.",
-        en: "Cash collection procedures, Cash handling rules,Performing cash register fund counting."
+        en: "Cash collection procedures, Cash handling rules, Performing cash register fund counting."
       },
       skills: ["TPE", "Logiciels de caisse"]
     },
