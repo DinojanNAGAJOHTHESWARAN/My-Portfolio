@@ -145,7 +145,7 @@ const Experience = () => {
           {/* Experience professionnelle */}
           <div>
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">
-              Expérience Professionnelle
+              {language === "fr" ? "Expérience Professionnelle" : "Work Experience"}
             </h3>
             <div className="space-y-6">
               {experiences.map((exp, index) => (
@@ -185,7 +185,7 @@ const Experience = () => {
           {/* Formation */}
           <div>
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">
-              Formation
+              {language === "fr" ? "Formation" : "Education"}
             </h3>
             <div className="space-y-6">
               {education.map((edu, index) => (
