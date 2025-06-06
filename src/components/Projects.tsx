@@ -32,12 +32,10 @@ const Projects = () => {
         en: "Cut lead qualification time by 50%, increased conversion rate by 30%, and improved Sales-Marketing alignment.",
         fr: "Réduction du temps de qualification des leads de 50%, augmentation du taux de conversion de 30%, meilleure synergie Sales-Marketing."
       },
-      tools: [
-        "Make", "Google Sheets", "Mistral AI", "Slack", "Salesforce", "Calendly"
-      ],
+      tools: ["Make", "Google Sheets", "Mistral AI", "Slack", "Salesforce", "Calendly"],
       type: "Marketing Automation",
       gradient: "from-rose-500 to-orange-500"
-    }
+    },
     {
       id: 2,
       title: {
@@ -118,7 +116,6 @@ const Projects = () => {
               style={{ animationDelay: `${index * 0.2}s` }}
               onClick={() => handleProjectClick(project.id)}
             >
-              {/* Header avec gradient */}
               <div className={`h-2 bg-gradient-to-r ${project.gradient}`}></div>
               
               <CardHeader className="pb-4">
