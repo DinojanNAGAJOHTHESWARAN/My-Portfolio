@@ -34,7 +34,7 @@ const Hero = () => {
                 src="/profile_picture copie.JPG"
                 alt="Dinojan Nagajohtheswaran"
                 className="object-cover w-full h-full scale-100 object-center"
-                style={{ objectPosition: "center 30%" }} 
+                style={{ objectPosition: "center center" }}
               />
               <AvatarFallback className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
                 DN
