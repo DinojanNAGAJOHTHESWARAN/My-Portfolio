@@ -10,42 +10,34 @@ const Projects = () => {
   const navigate = useNavigate();
 
   const projects = [
-    {
+     {
       id: 1,
       title: {
-        en: "AI-driven Lead Scoring and Personalization Workflow for Malt",
-        fr: "Workflow de Scoring de Leads et Personnalisation Piloté par l’IA pour Malt"
+        en: "AI-powered Lead Scoring for Malt",
+        fr: "Scoring de Leads par IA pour Malt"
       },
       context: {
-        en: "Malt approached us with a key challenge: how to increase its visibility and user engagement. Although the company already delivers high-value content through various channels (market studies, AI trend reports, and industry whitepapers), the personalization process is limited, conversion rates are suboptimal, and user data is fragmented across platforms. Additionally, there is a lack of consolidated metrics for campaign performance.",
-        fr: "Malt nous a sollicités avec une problématique centrale : comment augmenter sa visibilité et renforcer l’adoption de sa plateforme par ses clients. Malgré la production régulière de contenus premium diffusés sur plusieurs canaux (études de marché, rapports IA, whitepapers sectoriels), le processus de personnalisation reste limité, les taux de conversion sont faibles, les données utilisateurs sont dispersées, et le suivi des campagnes manque de métriques consolidées."
+        en: "Malt needed to improve lead conversion and unify fragmented marketing data across platforms.",
+        fr: "Malt devait améliorer la conversion des leads et centraliser des données marketing dispersées."
       },
       objective: {
-        en: "To enhance campaign efficiency and sales performance by automating lead qualification, scoring, and segmentation. This includes using AI to identify high-potential leads, optimizing marketing efforts, and providing a streamlined, data-driven handover to sales teams.",
-        fr: "Améliorer l'efficacité des campagnes et les performances commerciales en automatisant la qualification, le scoring et la segmentation des leads. Il s’agit d’utiliser l’IA pour identifier les prospects à fort potentiel, optimiser les efforts marketing et assurer un passage fluide et basé sur les données vers les équipes commerciales."
+        en: "Automate lead scoring and segmentation to boost campaign performance and sales handover.",
+        fr: "Automatiser le scoring et la segmentation pour améliorer les campagnes et le transfert aux Sales."
       },
       approach: {
-        en: "We built a group project with a clearly defined workflow that automates the lead scoring process using Make (Integromat). Data from Google Sheets—aggregating traffic, LinkedIn Ads, and Salesforce activity—is extracted and processed. The Mistral AI model scores leads based on custom rules, and updates are made in real-time. The workflow includes: real-time scoring and segmentation (1–3 tiers), Gmail for personalized email dispatch to prospects, Calendly for automated scheduling of meetings with Sales, Slack notifications to Sales teams regarding high-quality leads and booked meetings. These systems communicate seamlessly to reduce manual operations and improve commercial reactivity.",
-        fr: "Ce projet de groupe a été conçu avec un workflow précis pour automatiser le scoring des leads à l’aide de Make (Integromat). Les données issues de Google Sheets – centralisant le trafic, les campagnes LinkedIn Ads et les interactions sur Salesforce – sont extraites et traitées. L’IA Mistral attribue un score aux leads selon des règles prédéfinies, avec des mises à jour en temps réel. Le processus inclut : un scoring en temps réel avec segmentation en 3 niveaux, l’envoi d’e-mails personnalisés via Gmail, la prise de rendez-vous automatisée avec Calendly, des notifications sur Slack à destination des équipes Sales concernant les leads à fort potentiel et les réunions planifiées."
+        en: "Built an AI-driven workflow using Make, Mistral AI, and Google Sheets, with real-time updates and Slack alerts.",
+        fr: "Création d’un workflow IA avec Make, Mistral AI et Google Sheets, mises à jour en temps réel et alertes Slack."
       },
       results: {
-        en: "Real-time, AI-powered scoring of leads. Drastically improved prioritization of high-quality prospects. Enhanced coordination between marketing and sales. Time savings and reduced manual tasks. Centralized and cleaned data improving reporting capabilities.",
-        fr: "Scoring des leads automatisé et piloté par IA en temps réel. Priorisation fortement améliorée des prospects à fort potentiel. Coordination renforcée entre marketing et Sales. Gain de temps et réduction des tâches manuelles. Données centralisées et nettoyées, facilitant le reporting."
+        en: "Cut lead qualification time by 50%, increased conversion rate by 30%, and improved Sales-Marketing alignment.",
+        fr: "Réduction du temps de qualification des leads de 50%, augmentation du taux de conversion de 30%, meilleure synergie Sales-Marketing."
       },
       tools: [
-        "Make",
-        "Google Sheets",
-        "Mistral AI",
-        "Salesforce",
-        "LinkedIn Ads",
-        "Gmail",
-        "Calendly",
-        "Slack",
-        "Notion"
+        "Make", "Google Sheets", "Mistral AI", "Slack", "Salesforce", "Calendly"
       ],
       type: "Marketing Automation",
       gradient: "from-rose-500 to-orange-500"
-    },
+    }
     {
       id: 2,
       title: {
