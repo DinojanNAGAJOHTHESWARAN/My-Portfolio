@@ -15,32 +15,42 @@ const ProjectDetail = () => {
     {
       id: 1,
       title: {
-        fr: "Automatisation CRM avec Make & Airtable",
-        en: "CRM Automation with Make & Airtable"
+        en: "AI-driven Lead Scoring and Personalization Workflow for Malt",
+        fr: "Workflow de Scoring de Leads et Personnalisation Piloté par l’IA pour Malt"
       },
       context: {
-        fr: "ACE ÉNERGIE avait besoin d'automatiser la gestion de leurs leads commerciaux pour optimiser le processus de vente.",
-        en: "ACE ÉNERGIE needed to automate their sales lead management to optimize the sales process."
+        en: "Malt approached us with a key challenge: how to increase its visibility and user engagement. Although the company already delivers high-value content through various channels (market studies, AI trend reports, and industry whitepapers), the personalization process is limited, conversion rates are suboptimal, and user data is fragmented across platforms. Additionally, there is a lack of consolidated metrics for campaign performance.",
+        fr: "Malt nous a sollicités avec une problématique centrale : comment augmenter sa visibilité et renforcer l’adoption de sa plateforme par ses clients. Malgré la production régulière de contenus premium diffusés sur plusieurs canaux (études de marché, rapports IA, whitepapers sectoriels), le processus de personnalisation reste limité, les taux de conversion sont faibles, les données utilisateurs sont dispersées, et le suivi des campagnes manque de métriques consolidées."
       },
       objective: {
-        fr: "Créer un workflow automatisé qui synchronise les leads entre différentes plateformes et déclenche des actions personnalisées.",
-        en: "Create an automated workflow that synchronizes leads between different platforms and triggers personalized actions."
+        en: "To enhance campaign efficiency and sales performance by automating lead qualification, scoring, and segmentation. This includes using AI to identify high-potential leads, optimizing marketing efforts, and providing a streamlined, data-driven handover to sales teams.",
+        fr: "Améliorer l'efficacité des campagnes et les performances commerciales en automatisant la qualification, le scoring et la segmentation des leads. Il s’agit d’utiliser l’IA pour identifier les prospects à fort potentiel, optimiser les efforts marketing et assurer un passage fluide et basé sur les données vers les équipes commerciales."
       },
       approach: {
-        fr: "Utilisation de Make pour créer des scénarios complexes, Airtable comme base de données centralisée, et intégration avec HubSpot.",
-        en: "Used Make to create complex scenarios, Airtable as a centralized database, and integration with HubSpot."
+        en: `We built a group project with a clearly defined workflow that automates the lead scoring process using Make (Integromat). Data from Google Sheets—aggregating traffic, LinkedIn Ads, and Salesforce activity—is extracted and processed. The Mistral AI model scores leads based on custom rules, and updates are made in real-time.\n\nThe workflow includes:\n\n- Real-time scoring and segmentation (1–3 tiers)\n- Gmail for personalized email dispatch to prospects\n- Calendly for automated scheduling of meetings with Sales\n- Slack notifications to Sales teams regarding high-quality leads and booked meetings\n\nThese systems communicate seamlessly to reduce manual operations and improve commercial reactivity.\n\n[View Project Details](https://judicious-profit-bcc.notion.site/Premier-rendu-Team-10-1a600279629f80b488e2c7d134b200e2)`,
+        fr: `Ce projet de groupe a été conçu avec un workflow précis pour automatiser le scoring des leads à l’aide de Make (Integromat). Les données issues de Google Sheets – centralisant le trafic, les campagnes LinkedIn Ads et les interactions sur Salesforce – sont extraites et traitées. L’IA Mistral attribue un score aux leads selon des règles prédéfinies, avec des mises à jour en temps réel.\n\nLe processus inclut :\n\n- Un scoring en temps réel avec segmentation en 3 niveaux\n- L’envoi d’e-mails personnalisés via Gmail\n- La prise de rendez-vous automatisée avec Calendly\n- Des notifications sur Slack à destination des équipes Sales concernant les leads à fort potentiel et les réunions planifiées\n\n[Voir le projet complet](https://judicious-profit-bcc.notion.site/Premier-rendu-Team-10-1a600279629f80b488e2c7d134b200e2)`
       },
       results: {
-        fr: "Réduction de 70% du temps de traitement des leads et amélioration de 45% du taux de conversion.",
-        en: "70% reduction in lead processing time and 45% improvement in conversion rate."
+        en: "Real-time, AI-powered scoring of leads\nDrastically improved prioritization of high-quality prospects\nEnhanced coordination between marketing and sales\nTime savings and reduced manual tasks\nCentralized and cleaned data improving reporting capabilities",
+        fr: "Scoring des leads automatisé et piloté par IA en temps réel\nPriorisation fortement améliorée des prospects à fort potentiel\nCoordination renforcée entre marketing et Sales\nGain de temps et réduction des tâches manuelles\nDonnées centralisées et nettoyées, facilitant le reporting"
       },
-      tools: ["Make", "Airtable", "HubSpot", "Zapier"],
-      type: "Automatisation",
-      gradient: "from-blue-500 to-cyan-500",
-      duration: "3 mois",
-      client: "ACE ÉNERGIE",
-      heroImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=600&fit=crop", // Monitor showing Java programming
-      workflowImage: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=400&fit=crop" // Colorful software code
+      tools: [
+        "Make (Integromat)",
+        "Google Sheets",
+        "Mistral AI",
+        "Salesforce",
+        "LinkedIn Ads",
+        "Gmail",
+        "Calendly",
+        "Slack",
+        "Notion"
+      ],
+      type: "Marketing Automation / Data Integration / AI-assisted Sales Enablement",
+      gradient: "from-indigo-500 to-blue-600",
+      duration: "4 semaines",
+      client: "Malt",
+      heroImage: "https://images.unsplash.com/photo-1581092580505-988d7b6dcf9e?w=1200&h=600&fit=crop",
+      workflowImage: "https://images.unsplash.com/photo-1679002619558-f18d4e68a0e9?w=800&h=400&fit=crop"
     },
     {
       id: 2,
