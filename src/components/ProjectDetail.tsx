@@ -38,7 +38,9 @@ const ProjectDetail = () => {
       type: "Automatisation",
       gradient: "from-blue-500 to-cyan-500",
       duration: "3 mois",
-      client: "ACE ÉNERGIE"
+      client: "ACE ÉNERGIE",
+      heroImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=600&fit=crop", // Monitor showing Java programming
+      workflowImage: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=400&fit=crop" // Colorful software code
     },
     {
       id: 2,
@@ -66,7 +68,9 @@ const ProjectDetail = () => {
       type: "Data Analysis",
       gradient: "from-green-500 to-emerald-500",
       duration: "2 mois",
-      client: "Entreprise confidentielle"
+      client: "Entreprise confidentielle",
+      heroImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=1200&h=600&fit=crop", // Turned on gray laptop computer
+      workflowImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=400&fit=crop" // Matrix movie still
     },
     {
       id: 3,
@@ -94,7 +98,9 @@ const ProjectDetail = () => {
       type: "Communication",
       gradient: "from-purple-500 to-pink-500",
       duration: "1 mois",
-      client: "Équipe interne"
+      client: "Équipe interne",
+      heroImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=600&fit=crop", // Woman using laptop
+      workflowImage: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=400&fit=crop" // Colorful web code
     }
   ];
 
@@ -147,6 +153,21 @@ const ProjectDetail = () => {
               </span>
               <span>•</span>
               <span>{project.client}</span>
+            </div>
+          </div>
+
+          {/* Hero Image - Main project showcase */}
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <img 
+              src={project.heroImage} 
+              alt={project.title[language]}
+              className="w-full h-64 md:h-80 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div className="absolute bottom-6 left-6">
+              <h2 className="text-white text-xl md:text-2xl font-bold">
+                {language === "fr" ? "Aperçu du projet" : "Project Overview"}
+              </h2>
             </div>
           </div>
 
@@ -208,6 +229,22 @@ const ProjectDetail = () => {
               </CardContent>
             </Card>
           </div>
+
+          {/* Workflow/Process Image - Shows the technical implementation */}
+          <Card className="glass-effect border-0 shadow-xl overflow-hidden">
+            <CardHeader>
+              <CardTitle className="text-slate-900 dark:text-white">
+                {language === "fr" ? "Architecture technique" : "Technical Architecture"}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="p-0">
+              <img 
+                src={project.workflowImage} 
+                alt={language === "fr" ? "Architecture du projet" : "Project Architecture"}
+                className="w-full h-48 md:h-64 object-cover"
+              />
+            </CardContent>
+          </Card>
 
           {/* Tools used */}
           <Card className="glass-effect border-0 shadow-xl">
