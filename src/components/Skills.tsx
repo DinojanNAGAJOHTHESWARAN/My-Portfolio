@@ -10,11 +10,11 @@ const Skills = () => {
     {
       category: t('automation'),
       skills: [
-        { name: "Make", level: 95 },
+        { name: "Make", level: 90 },
         { name: "Zapier", level: 90 },
-        { name: "Notion", level: 88 },
-        { name: "Airtable", level: 85 },
-        { name: "n8n", level: 75 }
+        { name: "Notion", level: 80},
+        { name: "Airtable", level: 48 },
+        { name: "n8n", level: 59 }
       ],
       gradient: "from-blue-500 to-cyan-500",
       icon: "🔄"
@@ -23,7 +23,7 @@ const Skills = () => {
       category: t('dataViz'),
       skills: [
         { name: "Power BI", level: 85 },
-        { name: "Google Sheets", level: 90 },
+        { name: "Google Sheets", level: 95 },
         { name: "SQL", level: 80 },
         { name: "Dataiku", level: 70 },
         { name: "Excel", level: 95 }
@@ -34,11 +34,11 @@ const Skills = () => {
     {
       category: t('development'),
       skills: [
-        { name: "Python", level: 75 },
+        { name: "Python", level: 80 },
         { name: "APIs", level: 85 },
-        { name: "JavaScript", level: 70 },
+        { name: "JavaScript", level: 30 },
         { name: "HTML/CSS", level: 80 },
-        { name: "Git", level: 75 }
+        { name: "Git", level: 50 }
       ],
       gradient: "from-purple-500 to-pink-500",
       icon: "💻"
@@ -49,8 +49,8 @@ const Skills = () => {
         { name: "HubSpot", level: 88 },
         { name: "Google Analytics", level: 85 },
         { name: "Marketing Automation", level: 90 },
-        { name: "CRM", level: 85 },
-        { name: "Lead Generation", level: 82 }
+        { name: "Looker", level: 65 },
+        { name: "Lead Generation", level: 70 }
       ],
       gradient: "from-orange-500 to-red-500",
       icon: "🎯"
