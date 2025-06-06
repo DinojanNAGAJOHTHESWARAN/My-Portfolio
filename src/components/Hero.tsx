@@ -31,7 +31,7 @@ const Hero = () => {
           <div className="mb-8 flex justify-center">
             <Avatar className="w-32 h-32 ring-4 ring-blue-200 dark:ring-blue-800 shadow-xl">
               <AvatarImage 
-                src="/public/profile_picture.JPG"
+                src="/profile_picture.JPG"
                 alt="Dinojan Nagajohtheswaran"
                 className="object-cover w-full h-full scale-150 object-center"
                 style={{ objectPosition: "center 30%" }} 
