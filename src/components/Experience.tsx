@@ -182,6 +182,7 @@ const Experience = () => {
             </div>
           </div>
 
+        <div className="grid lg:grid-cols-2 gap-12">          
           {/* Formation */}
           <div>
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">
