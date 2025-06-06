@@ -19,7 +19,7 @@ const translations = {
     contact: "Contact",
     
     // Hero section
-    name: "Dinojan NagaJohtheswaran",
+    name: "Dinojan Nagajohtheswaran",
     title: "Chargé d'automatisation – Data & Business",
     tagline: "Je conçois des solutions automatisées qui boostent la productivité des équipes data et marketing.",
     bio: "Étudiant en MSc \"AI Applied to Business\" à Eugenia School, je combine des compétences en automatisation, no-code et data pour créer des systèmes efficaces, pilotés par la donnée. Actuellement en alternance chez ACE ÉNERGIE, j'automatise des process business complexes à l'aide d'outils comme Make, Zapier, Notion et Airtable.",
@@ -74,7 +74,7 @@ const translations = {
     contact: "Contact",
     
     // Hero section
-    name: "Dinojan NagaJohtheswaran",
+    name: "Dinojan Nagajohtheswaran",
     title: "Automation Specialist – Data & Business",
     tagline: "I design automated solutions that boost data and marketing teams' productivity.",
     bio: "MSc student in \"AI Applied to Business\" at Eugenia School, I combine automation, no-code, and data skills to create efficient, data-driven systems. Currently working as an intern at ACE ÉNERGIE, I automate complex business processes using tools like Make, Zapier, Notion, and Airtable.",
