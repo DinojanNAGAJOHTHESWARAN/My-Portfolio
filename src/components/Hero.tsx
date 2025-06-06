@@ -21,7 +21,7 @@ const Hero = () => {
   };
 
   // Set CV file depending on language, default to English if not French
-  const cvFile = language === 'fr' ? '/cv-fr.pdf' : '/cv-en.pdf';
+  const cvFile = language === 'fr' ? '/CV NAGAJOHTHESWARAN-fr.pdf' : '/CV NAGAJOHTHESWARAN-en.pdf';
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center pt-16 px-4 relative">
