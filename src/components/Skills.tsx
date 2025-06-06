@@ -8,25 +8,25 @@ const Skills = () => {
   const techStacks = [
     {
       category: { fr: "Automatisation", en: "Automation" },
-      tools: ["Make", "Zapier", "Notion", "Airtable", "n8n"],
+      tools: ["Make", "Zapier", "Notion", "Microsoft Power Automate", "n8n", "HubSpot Automation", "Google Apps Script"],
       gradient: "from-blue-500 to-cyan-500",
       icon: "🔄"
     },
     {
       category: { fr: "Data / BI", en: "Data / BI" },
-      tools: ["Power BI", "Google Sheets", "SQL", "Dataiku", "Excel"],
+      tools: ["Power BI", "Google Sheets", "Looker", "Dataiku", "Excel", "Tableau"],
       gradient: "from-green-500 to-emerald-500",
       icon: "📊"
     },
     {
       category: { fr: "Développement", en: "Development" },
-      tools: ["Python", "APIs", "JavaScript", "HTML/CSS", "Git"],
+      tools: ["Python", "APIs", "JavaScript", "HTML/CSS", "SQL", "Flask"],
       gradient: "from-purple-500 to-pink-500",
       icon: "💻"
     },
     {
       category: { fr: "Marketing Digital", en: "Digital Marketing" },
-      tools: ["HubSpot", "Google Analytics", "Marketing Automation", "Looker", "Lead Generation"],
+      tools: ["HubSpot", "Google Analytics", "Marketing Automation", "Looker", "Lead Generation", "Google Tag Manager", "Canva" ,"Salesforce Marketing Cloud", "Google Ads", "SEMrush", "Mailchimp"],
       gradient: "from-orange-500 to-red-500",
       icon: "🎯"
     }
