@@ -70,7 +70,7 @@ const Skills = () => {
 
   const stats = [
     {
-      number: "50+",
+      number: "30+",
       label: {
         fr: "Automatisations créées",
         en: "Automations created"
@@ -94,7 +94,7 @@ const Skills = () => {
       gradient: "from-purple-500 to-pink-500"
     },
     {
-      number: "3",
+      number: "2",
       label: {
         fr: "Années d'expérience",
         en: "Years of experience"
