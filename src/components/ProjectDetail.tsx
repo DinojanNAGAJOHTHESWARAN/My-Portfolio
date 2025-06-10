@@ -3,7 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, ExternalLink, Calendar, Target, Lightbulb, TrendingUp, Users, Zap, Database } from "lucide-react";
+import { ArrowLeft, ExternalLink, Calendar, Target, Lightbulb, TrendingUp, Users, Zap, Database, AlertTriangle, CheckCircle2, Download, FileText } from "lucide-react";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -178,62 +178,126 @@ Le processus inclut :
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       <div className="container mx-auto max-w-7xl px-4 py-8">
-        <Button 
-          variant="outline" 
-          onClick={() => navigate("/")}
-          className="mb-8 glass-effect border-0 shadow-lg hover-lift"
-        >
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          {language === "fr" ? "Retour aux projets" : "Back to projects"}
-        </Button>
+        {/* Navigation */}
+        <div className="flex items-center justify-between mb-8">
+          <Button 
+            variant="outline" 
+            onClick={() => navigate("/")}
+            className="glass-effect border-0 shadow-lg hover-lift"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            {language === "fr" ? "Retour aux projets" : "Back to projects"}
+          </Button>
+          
+          <div className="flex items-center gap-4">
+            <Badge 
+              variant="outline" 
+              className={`text-transparent bg-gradient-to-r ${project.gradient} bg-clip-text border-blue-200 dark:border-blue-800 px-6 py-2 text-sm font-medium`}
+            >
+              {project.type}
+            </Badge>
+          </div>
+        </div>
 
-        <div className="space-y-16">
-          {/* Enhanced Header */}
-          <div className="text-center relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 via-blue-500/10 to-purple-500/10 rounded-3xl blur-3xl"></div>
-            <div className="relative z-10 py-16 px-8">
-              <Badge 
-                variant="outline" 
-                className={`text-transparent bg-gradient-to-r ${project.gradient} bg-clip-text border-blue-200 dark:border-blue-800 mb-8 text-lg px-8 py-3 font-medium`}
-              >
-                {project.type}
-              </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-8 leading-tight max-w-5xl mx-auto">
+        {/* Dashboard Header */}
+        <div className="mb-12">
+          <div className="relative bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-600 rounded-3xl p-8 text-white overflow-hidden">
+            <div className="absolute inset-0 bg-black/20"></div>
+            <div className="relative z-10">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                 {project.title[language]}
               </h1>
-              <div className="flex justify-center gap-8 text-lg text-slate-600 dark:text-slate-400">
-                <span className="flex items-center gap-3">
-                  <Calendar className="h-6 w-6 text-blue-500" />
+              <div className="flex flex-wrap gap-6 text-lg">
+                <div className="flex items-center gap-3 bg-white/20 rounded-full px-4 py-2">
+                  <Calendar className="h-5 w-5" />
                   <span className="font-medium">{project.duration}</span>
-                </span>
-                <span className="flex items-center gap-3">
-                  <Users className="h-6 w-6 text-green-500" />
+                </div>
+                <div className="flex items-center gap-3 bg-white/20 rounded-full px-4 py-2">
+                  <Users className="h-5 w-5" />
                   <span className="font-medium">{project.client}</span>
-                </span>
+                </div>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Fixed Images Grid for first project */}
-          {project.id === 1 && project.images && (
-            <Card className="glass-effect border-0 shadow-2xl overflow-hidden">
-              <CardHeader className="text-center pb-6">
-                <CardTitle className="text-slate-900 dark:text-white text-3xl font-bold">
-                  {language === "fr" ? "Galerie du Projet" : "Project Gallery"}
+        {/* Dashboard Grid */}
+        <div className="space-y-8">
+          {/* Situation & Problem Analysis Row */}
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Situation/Context Card */}
+            <Card className="glass-effect border-0 shadow-xl hover-lift group relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
+              <CardHeader className="pb-4">
+                <CardTitle className="flex items-center gap-4 text-slate-900 dark:text-white text-xl">
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg">
+                    <Lightbulb className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <span className="text-xs uppercase tracking-wider text-blue-600 dark:text-blue-400 font-semibold">
+                      {language === "fr" ? "Situation" : "Situation"}
+                    </span>
+                    <div className="text-lg font-bold">
+                      {t('context')}
+                    </div>
+                  </div>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-8">
+              <CardContent className="px-6 pb-6">
+                <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
+                  {project.context[language]}
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Problem/Objective Card */}
+            <Card className="glass-effect border-0 shadow-xl hover-lift group relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 to-red-600"></div>
+              <CardHeader className="pb-4">
+                <CardTitle className="flex items-center gap-4 text-slate-900 dark:text-white text-xl">
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-orange-500 to-red-600 shadow-lg">
+                    <AlertTriangle className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <span className="text-xs uppercase tracking-wider text-orange-600 dark:text-orange-400 font-semibold">
+                      {language === "fr" ? "Problématique" : "Problem"}
+                    </span>
+                    <div className="text-lg font-bold">
+                      {t('objective')}
+                    </div>
+                  </div>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="px-6 pb-6">
+                <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
+                  {project.objective[language]}
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Visual Gallery for Project 1 */}
+          {project.id === 1 && project.images && (
+            <Card className="glass-effect border-0 shadow-xl overflow-hidden relative">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-600"></div>
+              <CardHeader className="text-center pb-4">
+                <CardTitle className="text-slate-900 dark:text-white text-2xl font-bold flex items-center justify-center gap-3">
+                  <Database className="h-7 w-7 text-indigo-600" />
+                  {language === "fr" ? "Architecture & Visualisations" : "Architecture & Visualizations"}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   {project.images.map((image, index) => (
-                    <div key={index} className="relative group overflow-hidden rounded-2xl shadow-xl">
+                    <div key={index} className="relative group overflow-hidden rounded-xl shadow-lg border border-slate-200 dark:border-slate-700">
                       <img 
                         src={image.url} 
                         alt={image.title[language]}
-                        className="w-full h-64 md:h-72 object-cover transition-all duration-500 group-hover:scale-110"
+                        className="w-full h-56 object-cover transition-all duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 className="text-white text-xl font-bold">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 className="text-white text-lg font-semibold">
                           {image.title[language]}
                         </h3>
                       </div>
@@ -244,136 +308,132 @@ Le processus inclut :
             </Card>
           )}
 
-          {/* Fallback hero image for other projects */}
+          {/* Hero Image for other projects */}
           {project.id !== 1 && (
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+            <Card className="glass-effect border-0 shadow-xl overflow-hidden relative">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-600"></div>
               <img 
                 src={project.heroImage} 
                 alt={project.title[language]}
-                className="w-full h-72 md:h-96 object-cover"
+                className="w-full h-64 md:h-80 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-8 left-8">
-                <h2 className="text-white text-2xl md:text-3xl font-bold">
+              <div className="absolute bottom-6 left-6">
+                <h2 className="text-white text-xl md:text-2xl font-bold">
                   {language === "fr" ? "Aperçu du projet" : "Project Overview"}
                 </h2>
               </div>
-            </div>
+            </Card>
           )}
 
-          {/* Enhanced project details grid */}
-          <div className="grid lg:grid-cols-2 gap-10">
-            <Card className="glass-effect border-0 shadow-2xl hover-lift group">
-              <CardHeader className="pb-6">
-                <CardTitle className="flex items-center gap-4 text-slate-900 dark:text-white text-2xl">
-                  <div className="p-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg">
-                    <Lightbulb className="h-7 w-7 text-white" />
-                  </div>
-                  {t('context')}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="px-8 pb-8">
-                <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-lg font-light">
-                  {project.context[language]}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="glass-effect border-0 shadow-2xl hover-lift group">
-              <CardHeader className="pb-6">
-                <CardTitle className="flex items-center gap-4 text-slate-900 dark:text-white text-2xl">
-                  <div className="p-3 rounded-xl bg-gradient-to-r from-green-500 to-green-600 shadow-lg">
-                    <Target className="h-7 w-7 text-white" />
-                  </div>
-                  {t('objective')}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="px-8 pb-8">
-                <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-lg font-light">
-                  {project.objective[language]}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="glass-effect border-0 shadow-2xl hover-lift group lg:col-span-2">
-              <CardHeader className="pb-6">
-                <CardTitle className="flex items-center gap-4 text-slate-900 dark:text-white text-2xl">
-                  <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500 to-purple-600 shadow-lg">
-                    <Zap className="h-7 w-7 text-white" />
-                  </div>
-                  {language === "fr" ? "Approche" : "Approach"}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="px-8 pb-8">
-                <div className="text-slate-700 dark:text-slate-300 leading-relaxed text-lg font-light space-y-4">
-                  {project.approach[language].split('\n\n').map((paragraph, index) => (
-                    <p key={index} className="whitespace-pre-line">
-                      {paragraph}
-                    </p>
-                  ))}
+          {/* Solution/Approach Section */}
+          <Card className="glass-effect border-0 shadow-xl hover-lift group relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-600"></div>
+            <CardHeader className="pb-4">
+              <CardTitle className="flex items-center gap-4 text-slate-900 dark:text-white text-xl">
+                <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500 to-purple-600 shadow-lg">
+                  <Zap className="h-6 w-6 text-white" />
                 </div>
-              </CardContent>
-            </Card>
-
-            <Card className="glass-effect border-0 shadow-2xl hover-lift group lg:col-span-2">
-              <CardHeader className="pb-6">
-                <CardTitle className="flex items-center gap-4 text-slate-900 dark:text-white text-2xl">
-                  <div className="p-3 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 shadow-lg">
-                    <TrendingUp className="h-7 w-7 text-white" />
+                <div>
+                  <span className="text-xs uppercase tracking-wider text-purple-600 dark:text-purple-400 font-semibold">
+                    {language === "fr" ? "Solution" : "Solution"}
+                  </span>
+                  <div className="text-lg font-bold">
+                    {language === "fr" ? "Approche & Méthodologie" : "Approach & Methodology"}
                   </div>
-                  {t('results')}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="px-8 pb-8">
-                <div className="space-y-4">
-                  {project.results[language].split('\n').map((result, index) => (
-                    <div key={index} className="flex items-start gap-4 group/item">
-                      <div className="w-3 h-3 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full mt-2 flex-shrink-0 shadow-sm group-hover/item:scale-110 transition-transform"></div>
-                      <p className="text-emerald-700 dark:text-emerald-300 font-medium leading-relaxed text-lg">
-                        {result}
-                      </p>
+                </div>
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="px-6 pb-6">
+              <div className="text-slate-700 dark:text-slate-300 leading-relaxed text-base space-y-4">
+                {project.approach[language].split('\n\n').map((paragraph, index) => (
+                  <p key={index} className="whitespace-pre-line">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Results & Impact Section */}
+          <Card className="glass-effect border-0 shadow-xl hover-lift group relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-green-600"></div>
+            <CardHeader className="pb-4">
+              <CardTitle className="flex items-center gap-4 text-slate-900 dark:text-white text-xl">
+                <div className="p-3 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 shadow-lg">
+                  <TrendingUp className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <span className="text-xs uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold">
+                    {language === "fr" ? "Impact" : "Impact"}
+                  </span>
+                  <div className="text-lg font-bold">
+                    {t('results')}
+                  </div>
+                </div>
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="px-6 pb-6">
+              <div className="space-y-4">
+                {project.results[language].split('\n').map((result, index) => (
+                  <div key={index} className="flex items-start gap-4 group/item">
+                    <div className="p-1 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full mt-1 flex-shrink-0 group-hover/item:scale-110 transition-transform">
+                      <CheckCircle2 className="h-4 w-4 text-white" />
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Enhanced workflow image for other projects */}
-          {project.id !== 1 && project.workflowImage && (
-            <Card className="glass-effect border-0 shadow-2xl overflow-hidden hover-lift">
-              <CardHeader className="pb-6">
-                <CardTitle className="flex items-center gap-4 text-slate-900 dark:text-white text-2xl">
-                  <div className="p-3 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-600 shadow-lg">
-                    <Database className="h-7 w-7 text-white" />
+                    <p className="text-emerald-700 dark:text-emerald-300 font-medium leading-relaxed text-base">
+                      {result}
+                    </p>
                   </div>
-                  {language === "fr" ? "Architecture technique" : "Technical Architecture"}
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Technical Architecture for other projects */}
+          {project.id !== 1 && project.workflowImage && (
+            <Card className="glass-effect border-0 shadow-xl overflow-hidden hover-lift relative">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-600"></div>
+              <CardHeader className="pb-4">
+                <CardTitle className="flex items-center gap-4 text-slate-900 dark:text-white text-xl">
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-600 shadow-lg">
+                    <Database className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <span className="text-xs uppercase tracking-wider text-indigo-600 dark:text-indigo-400 font-semibold">
+                      {language === "fr" ? "Architecture" : "Architecture"}
+                    </span>
+                    <div className="text-lg font-bold">
+                      {language === "fr" ? "Infrastructure technique" : "Technical Infrastructure"}
+                    </div>
+                  </div>
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-0">
                 <img 
                   src={project.workflowImage} 
                   alt={language === "fr" ? "Architecture du projet" : "Project Architecture"}
-                  className="w-full h-56 md:h-72 object-cover"
+                  className="w-full h-48 md:h-64 object-cover"
                 />
               </CardContent>
             </Card>
           )}
 
-          {/* Enhanced tools section */}
-          <Card className="glass-effect border-0 shadow-2xl hover-lift">
-            <CardHeader className="pb-8">
-              <CardTitle className="text-slate-900 dark:text-white text-3xl font-bold text-center">
-                {language === "fr" ? "Technologies & Outils" : "Technologies & Tools"}
+          {/* Technologies & Tools */}
+          <Card className="glass-effect border-0 shadow-xl hover-lift relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-slate-500 to-slate-600"></div>
+            <CardHeader className="pb-6">
+              <CardTitle className="text-slate-900 dark:text-white text-2xl font-bold text-center flex items-center justify-center gap-3">
+                <Zap className="h-7 w-7 text-slate-600" />
+                {language === "fr" ? "Stack Technologique" : "Technology Stack"}
               </CardTitle>
             </CardHeader>
-            <CardContent className="px-8 pb-8">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            <CardContent className="px-6 pb-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
                 {project.tools.map((tool) => (
                   <Badge 
                     key={tool} 
                     variant="secondary" 
-                    className="px-6 py-4 bg-gradient-to-br from-slate-100 via-slate-50 to-white dark:from-slate-800 dark:via-slate-700 dark:to-slate-600 text-slate-700 dark:text-slate-200 text-center justify-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border border-slate-200 dark:border-slate-600 text-sm font-medium"
+                    className="px-4 py-3 bg-gradient-to-br from-slate-100 via-slate-50 to-white dark:from-slate-800 dark:via-slate-700 dark:to-slate-600 text-slate-700 dark:text-slate-200 text-center justify-center hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg border border-slate-200 dark:border-slate-600 text-sm font-medium"
                   >
                     {tool}
                   </Badge>
@@ -382,37 +442,53 @@ Le processus inclut :
             </CardContent>
           </Card>
 
-          {/* Enhanced external resources for first project */}
+          {/* Documentation & Resources for Project 1 */}
           {project.id === 1 && (
-            <Card className="glass-effect border-0 shadow-2xl hover-lift">
-              <CardHeader className="pb-8">
-                <CardTitle className="text-slate-900 dark:text-white text-3xl font-bold text-center">
-                  {language === "fr" ? "Ressources & Documentation" : "Resources & Documentation"}
+            <Card className="glass-effect border-0 shadow-xl hover-lift relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-600"></div>
+              <CardHeader className="pb-6">
+                <CardTitle className="text-slate-900 dark:text-white text-2xl font-bold text-center flex items-center justify-center gap-3">
+                  <FileText className="h-7 w-7 text-cyan-600" />
+                  {language === "fr" ? "Documentation & Ressources" : "Documentation & Resources"}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="px-8 pb-8">
-                <div className="grid md:grid-cols-2 gap-8">
+              <CardContent className="px-6 pb-6">
+                <div className="grid md:grid-cols-2 gap-6">
                   <a 
                     href="https://judicious-profit-bcc.notion.site/Premier-rendu-Team-10-1a600279629f80b488e2c7d134b200e2" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-center px-8 py-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
+                    className="group relative overflow-hidden"
                   >
-                    <ExternalLink className="w-6 h-6 mr-4 group-hover:rotate-12 transition-transform" />
-                    <span className="font-semibold text-lg">
-                      {language === "fr" ? "Documentation Complète" : "Complete Documentation"}
-                    </span>
+                    <div className="flex items-center justify-center px-6 py-8 bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 border border-blue-500/20">
+                      <div className="text-center">
+                        <ExternalLink className="w-8 h-8 mx-auto mb-3 group-hover:rotate-12 transition-transform" />
+                        <span className="font-semibold text-lg block">
+                          {language === "fr" ? "Documentation Complète" : "Complete Documentation"}
+                        </span>
+                        <span className="text-blue-100 text-sm mt-1 block">
+                          {language === "fr" ? "Voir sur Notion" : "View on Notion"}
+                        </span>
+                      </div>
+                    </div>
                   </a>
             
                   <a 
                     href="/Rendu_Malt.pdf" 
                     download 
-                    className="group flex items-center justify-center px-8 py-6 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-2xl hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
+                    className="group relative overflow-hidden"
                   >
-                    <ArrowLeft className="w-6 h-6 rotate-90 mr-4 group-hover:translate-y-1 transition-transform" />
-                    <span className="font-semibold text-lg">
-                      {language === "fr" ? "Présentation PDF" : "PDF Presentation"}
-                    </span>
+                    <div className="flex items-center justify-center px-6 py-8 bg-gradient-to-br from-green-600 to-green-700 text-white rounded-xl hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 border border-green-500/20">
+                      <div className="text-center">
+                        <Download className="w-8 h-8 mx-auto mb-3 group-hover:translate-y-1 transition-transform" />
+                        <span className="font-semibold text-lg block">
+                          {language === "fr" ? "Présentation PDF" : "PDF Presentation"}
+                        </span>
+                        <span className="text-green-100 text-sm mt-1 block">
+                          {language === "fr" ? "Télécharger" : "Download"}
+                        </span>
+                      </div>
+                    </div>
                   </a>
                 </div>
               </CardContent>
